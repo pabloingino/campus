@@ -36,7 +36,7 @@ if($_POST['registro'] == 'nuevo'){
 if($_POST['registro'] == 'actualizar'){
     
     try {
-        $stmt = $conn->prepare('UPDATE categoria_evento SET cat_evento = ?, icono = ?, editado = NOW() WHERE id_categoria = ? ');
+        $stmt = $conn->prepare('UPDATE categoria_evento SET cat_evento = ?, icono = ?, actualizado = NOW() WHERE id_categoria = ? ');
         $stmt->bind_param('ssi', $nombre_categoria, $icono, $id_registro );
         $stmt->execute();
         if($stmt->affected_rows) {

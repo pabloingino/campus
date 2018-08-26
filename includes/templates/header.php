@@ -75,11 +75,11 @@
                 </div>
 
                 <nav class="navegacion-principal clearfix">
+                    <a href="/campus/admin/login.php">Admin</a>
                     <a href="conferencia.php">Conferencia</a>
                     <a href="calendario.php">Calendario</a>
                     <a href="invitados.php">Invitados</a>
                     <a href="registro.php">Reservaciones</a>
-                    <a href="/campus/admin/login.php">Admin</a>
                 </nav>
             </div><!--.contenedor-->
         </div> <!--.barra-->

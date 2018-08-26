@@ -203,7 +203,7 @@
         <div class="newsletter parallax">
             <div class="contenido contenedor">
                 <p> regístrate al newsletter:</p>
-                <h3>gdlwebcamp</h3>
+                <h3>tech camp</h3>
                 <a href="#mc_embed_signup" class="boton_newsletter button transparente">Registro</a>
             </div> <!--.contenido-->
         </div><!--.newsletter-->

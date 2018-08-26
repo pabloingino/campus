@@ -1,7 +1,7 @@
 <footer class="site-footer">
     <div class="contenedor clearfix">
           <div class="footer-informacion">
-              <h3>Sobre <span>gdlwebcamp</span></h3>
+              <h3>Sobre <span>tech camp</span></h3>
               <p>Praesent rutrum efficitur pharetra. Vivamus scelerisque pretium velit, id tempor turpis pulvinar et. Ut bibendum finibus massa non molestie. Curabitur urna metus, placerat gravida lacus ut, lacinia congue orci. Maecenas luctus mi at ex blandit vehicula. Morbi porttitor tempus euismod.</p>
           </div>
           <div class="ultimos-tweets">
@@ -21,7 +21,7 @@
     </div>
     
     <p class="copyright">
-      Todos los derechos Reservados GDLWEBCAMP 2016.
+      Todos los derechos Reservados DP SOLUTIONS 2018. 
     </p>
   
   
