@@ -44,16 +44,16 @@ if($_POST['registro'] == 'actualizar'){
 
     try {
         if(empty($_POST['password']) ) {
-            $stmt = $conn->prepare("UPDATE admins SET usuario = ?, nombre = ?, actualizado = NOW() WHERE id_admin = ? ");
-            $stmt->bind_param("ssi", $usuario, $nombre, $id_registro);
+            $stmt = $conn->prepare("UPDATE admins SET usuario = ?, nombre = ?, nivel = ?,actualizado = NOW() WHERE id_admin = ? ");
+            $stmt->bind_param("sssi", $usuario, $nombre, $superadmin, $id_registro);
         } else {
             $opciones = array(
                 'cost' => 12
             );
 
             $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
-            $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, hash_pass = ?, actualizado = NOW() WHERE id_admin = ? ');
-            $stmt->bind_param("sssi", $usuario, $nombre, $hash_password, $id_registro);
+            $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, hash_pass = ?, nivel = ?,actualizado = NOW() WHERE id_admin = ? ');
+            $stmt->bind_param("ssssi", $usuario, $nombre, $hash_password, $superadmin,$id_registro);
         }
 
 

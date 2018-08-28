@@ -14,6 +14,7 @@
       $registro['cantidad'] = $registro_dia['resultado'];
 
       $arreglo_registros[] = $registro;
+      var_dump($arreglo_registros);
   }
 
 

@@ -6,7 +6,7 @@
     <div class="user-panel">
 
       <div class=" info">
-        
+
         <p><?php echo $_SESSION['nombre']; ?></p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
@@ -49,7 +49,7 @@
           <li><a href="crear-evento.php"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar</a></li>
         </ul>
       </li>
-      
+
       <li class="treeview">
         <a href="#">
           <i class="fa fa-book" aria-hidden="true"></i>
@@ -63,7 +63,7 @@
           <li><a href="crear-categoria.php"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar</a></li>
         </ul>
       </li>
-      
+
       <li class="treeview">
         <a href="#">
           <i class="fa fa-user-circle" aria-hidden="true"></i>
@@ -77,7 +77,7 @@
           <li><a href="crear-invitado.php"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar</a></li>
         </ul>
       </li>
-      
+
       <li class="treeview">
         <a href="#">
           <i class="fa fa-address-card" aria-hidden="true"></i>
@@ -91,7 +91,7 @@
           <li><a href="crear-registro.php"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar</a></li>
         </ul>
       </li>
-      
+
       <?php if($_SESSION['nivel'] == 1): ?>
       <li class="treeview">
         <a href="#">
@@ -107,8 +107,8 @@
         </ul>
       </li>
     <?php endif; ?>
-      
-      <li class="treeview">
+
+      <!-- <li class="treeview">
         <a href="#">
           <i class="fa fa-comments" aria-hidden="true"></i>
           <span>Testimoniales</span>
@@ -120,7 +120,7 @@
           <li><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> Ver Todos</a></li>
           <li><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar</a></li>
         </ul>
-      </li>
+      </li> -->
     </ul>
   </section>
   <!-- /.sidebar -->

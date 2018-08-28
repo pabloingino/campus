@@ -3,12 +3,12 @@
         include_once 'templates/header.php';
         include_once 'funciones/funciones.php';
         $id = $_GET['id'];
-        
+
         if(!filter_var($id, FILTER_VALIDATE_INT)) {
             die("Error!");
         }
         include_once 'templates/barra.php';
-        
+
         include_once 'templates/navegacion.php';
 ?>
 
@@ -56,7 +56,30 @@
                                           <label for="password">Password: </label>
                                           <input type="password" class="form-control" id="password" name="password" placeholder="Password para Iniciar Sesión">
                                     </div>
+                                    <div class="form-group">
+
+                                          <label for="superadmin">Superadmin:</label>
+                                          <?php  if ($admin['nivel'] == 1){?>
+                                                <select id="superadmin" name="superadmin" value="-Any-">
+                                                   <option value="1" selected>Si</option>
+                                                   <option value="0">No</option>
+                                                </select>
+                                          <?php } else {?>
+                                                <select id="superadmin" name="superadmin" value="-Any-">
+                                                   <option value="1">Si</option>
+                                                   <option value="0" selected>No</option>
+                                                </select>
+                                          <?php } ?>
+
+
+
+
+
+                                    </div>
+
+
                               </div>
+
                               <!-- /.box-body -->
 
                               <div class="box-footer">
@@ -72,7 +95,7 @@
 
                 </section>
                 <!-- /.content -->
-                
+
                 </div>
         </div>
   </div>
@@ -81,4 +104,3 @@
   <?php
           include_once 'templates/footer.php';
   ?>
-

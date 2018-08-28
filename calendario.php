@@ -42,6 +42,7 @@
                                   <h3>
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                         <?php echo $evento['fecha_evento']; ?>
+
                                   </h3>
                                   <?php $contador++; ?>
                             <?php endif; ?>
@@ -57,7 +58,7 @@
                                         case 'Talleres':
                                           echo '<i class="fa fa-code" aria-hidden="true"></i> Taller';
                                           break;
-                                        case 'Conferencias':
+                                        case 'Conferencia':
                                           echo '<i class="fa fa-comment" aria-hidden="true"></i> Conferencias';
                                           break;
                                         case 'Seminario':
@@ -68,7 +69,7 @@
                                             break;
                                           }
                                        ?>
-                                </p>
+                                 </p>
                                 <p><i class="fa fa-user" aria-hidden="true"></i>
                                       <?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado']; ?>
                                 </p>
