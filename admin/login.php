@@ -11,7 +11,7 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="../index.php"><b>GDL</b>WebCamp</a>
+    <a href="../index.php"><b>TECH</b>Camp</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -44,4 +44,3 @@
   <?php
           include_once 'templates/footer.php';
   ?>
-

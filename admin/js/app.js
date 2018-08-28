@@ -1,6 +1,6 @@
 $(document).ready(function () {
       $('.sidebar-menu').tree()
-      
+
 
 
       $('#registros').DataTable({
@@ -24,12 +24,12 @@ $(document).ready(function () {
             search: 'Buscar: '
         }
     });
-    
+
     $('#crear_registro_admin').attr('disabled', true);
-    
+
     $('#repetir_password').on('input', function() {
         var password_nuevo = $('#password').val();
-        
+
         if($(this).val() == password_nuevo ) {
             $('#resultado_password').text('Correcto');
             $('#resultado_password').parents('.form-group').addClass('has-success').removeClass('has-error');
@@ -41,7 +41,7 @@ $(document).ready(function () {
             $('input#password').parents('.form-group').addClass('has-error').removeClass('has-success');
         }
     });
-      
+
 
     //Date picker
     $('#fecha').datepicker({
@@ -51,7 +51,7 @@ $(document).ready(function () {
     $('.seleccionar').select2();
 
     $('.timepicker').timepicker({
-      showInputs: false,   
+      showInputs: false,
     });
 
     $('#icono').iconpicker();
@@ -61,13 +61,13 @@ $(document).ready(function () {
       checkboxClass: 'icheckbox_flat-blue',
       radioClass   : 'iradio_flat-blue'
   });
-  
+
   $.getJSON('servicio-registrados.php', function(data) {
       var line = new Morris.Line({
         element: 'grafica-registros',
         resize: true,
         data: data,
-        xkey: 'fecha',
+        xkey: ['fecha'],
         ykeys: ['cantidad'],
         labels: ['Item 1'],
         lineColors: ['#3c8dbc'],

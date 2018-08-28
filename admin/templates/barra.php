@@ -8,7 +8,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>G</b>WC</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>GDL</b>WebCamp</span>
+      <span class="logo-lg"><b>TECH</b>Camp</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -22,7 +22,7 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-    
+
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span class="hidden-xs">Hola: <?php echo $_SESSION['nombre']; ?></span>

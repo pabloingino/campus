@@ -5,6 +5,7 @@ include_once 'funciones/funciones.php';
 $usuario = $_POST['usuario'];
 $nombre  = $_POST['nombre'];
 $password = $_POST['password'];
+$superadmin = $_POST['superadmin'];
 $id_registro = $_POST['id_registro'];
 $fecha = date('Y-m-d H:i:s');
 
@@ -15,8 +16,8 @@ if($_POST['registro'] == 'nuevo'){
     $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
 
     try {
-        $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, hash_pass, actualizado) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $usuario, $nombre, $password_hashed, $fecha);
+        $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, hash_pass, nivel, actualizado) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $usuario, $nombre, $password_hashed, $superadmin, $fecha);
         $stmt->execute();
         $id_registro = $stmt->insert_id;
         if($id_registro > 0) {
@@ -24,7 +25,7 @@ if($_POST['registro'] == 'nuevo'){
                 'respuesta' => 'exito',
                 'id_admin' => $id_registro
             );
-            
+
         } else {
             $respuesta = array(
                 'respuesta' => 'error'
@@ -35,7 +36,7 @@ if($_POST['registro'] == 'nuevo'){
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
     }
-    
+
     die(json_encode($respuesta));
 }
 
@@ -49,13 +50,13 @@ if($_POST['registro'] == 'actualizar'){
             $opciones = array(
                 'cost' => 12
             );
-            
+
             $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
             $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, hash_pass = ?, actualizado = NOW() WHERE id_admin = ? ');
             $stmt->bind_param("sssi", $usuario, $nombre, $hash_password, $id_registro);
         }
-        
-        
+
+
 
         $stmt->execute();
         if($stmt->affected_rows) {
@@ -75,14 +76,14 @@ if($_POST['registro'] == 'actualizar'){
             'respuesta' => $e->getMessage()
         );
     }
-    
+
     die(json_encode($respuesta));
-    
+
 }
 
 if($_POST['registro'] == 'eliminar'){
     $id_borrar = $_POST['id'];
-    
+
     try {
         $stmt = $conn->prepare('DELETE FROM admins WHERE id_admin = ? ');
         $stmt->bind_param('i', $id_borrar);
@@ -104,21 +105,3 @@ if($_POST['registro'] == 'eliminar'){
     }
     die(json_encode($respuesta));
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

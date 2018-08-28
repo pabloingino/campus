@@ -37,14 +37,14 @@
                 <tbody>
                         <?php
                             try {
-                                $sql = "SELECT * FROM categoria_Evento";
+                                $sql = "SELECT * FROM categoria_evento";
                                 $resultado = $conn->query($sql);
                             } catch (Exception $e) {
                                 $error = $e->getMessage();
                                 echo $error;
                             }
                             while($categoria = $resultado->fetch_assoc() ) { ?>
-                                
+
                                 <tr>
                                     <td><?php echo $categoria['cat_evento']; ?></td>
                                     <td><i class="fa <?php echo $categoria['icono']; ?>"></i></td>
@@ -55,7 +55,7 @@
                                         <a href="#" data-id="<?php echo $categoria['id_categoria']; ?>" data-tipo="categoria" class="btn bg-maroon bnt-flat margin borrar_registro">
                                             <i class="fa fa-trash"></i>
                                         </a>
-                                        
+
                                     </td>
                                 </tr>
                             <?php }  ?>
@@ -84,4 +84,3 @@
   <?php
           include_once 'templates/footer.php';
   ?>
-

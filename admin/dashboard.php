@@ -2,9 +2,9 @@
         include_once 'funciones/sesiones.php';
         include_once 'funciones/funciones.php';
         include_once 'templates/header.php';
-        
+
         include_once 'templates/barra.php';
-        
+
         include_once 'templates/navegacion.php';
 ?>
 
@@ -28,8 +28,8 @@
               <div class="chart" id="grafica-registros" style="height: 300px;"></div>
             </div>
         </div>
-        
-        
+
+
         <h2 class="page-header">Resumen de Registros</h2>
         <div class="row">
                 <div class="col-lg-3 col-xs-6">
@@ -37,7 +37,7 @@
                         $sql = "SELECT COUNT(ID_Registrado) AS registros FROM registrados ";
                         $resultado = $conn->query($sql);
                         $registrados = $resultado->fetch_assoc();
-                    
+
                     ?>
                      <!-- small box -->
                       <div class="small-box bg-aqua">
@@ -54,13 +54,13 @@
                         </a>
                       </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-xs-6">
                     <?php
                         $sql = "SELECT COUNT(ID_Registrado) AS registros FROM registrados WHERE pagado = 1 ";
                         $resultado = $conn->query($sql);
                         $registrados = $resultado->fetch_assoc();
-                    
+
                     ?>
                      <!-- small box -->
                       <div class="small-box bg-yellow">
@@ -77,13 +77,13 @@
                         </a>
                       </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-xs-6">
                     <?php
                         $sql = "SELECT COUNT(ID_Registrado) AS registros FROM registrados WHERE pagado = 0 ";
                         $resultado = $conn->query($sql);
                         $registrados = $resultado->fetch_assoc();
-                    
+
                     ?>
                      <!-- small box -->
                       <div class="small-box bg-red">
@@ -100,18 +100,19 @@
                         </a>
                       </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-xs-6">
                     <?php
                         $sql = "SELECT SUM(total_pagado) AS ganancias FROM registrados WHERE pagado = 1 ";
                         $resultado = $conn->query($sql);
                         $registrados = $resultado->fetch_assoc();
-                    
+                        $ganancia = $registrados['ganancias'];
+
                     ?>
                      <!-- small box -->
                       <div class="small-box bg-green">
                         <div class="inner">
-                          <h3>$<?php echo $registrados['ganancias']; ?></h3>
+                          <h3>$<?php echo round($ganancia, 2); ?></h3>
 
                           <p>Ganancias Totales</p>
                         </div>
@@ -127,14 +128,14 @@
 
 
         <h2 class="page-header">Regalos</h2>
-        
+
         <div class="row">
             <div class="col-lg-3 col-xs-6">
                 <?php
                     $sql = "SELECT COUNT(total_pagado) AS pulseras FROM registrados WHERE pagado = 1 ";
                     $resultado = $conn->query($sql);
                     $regalo = $resultado->fetch_assoc();
-                
+
                 ?>
                  <!-- small box -->
                   <div class="small-box bg-teal">
@@ -151,13 +152,13 @@
                     </a>
                   </div>
             </div>
-            
+
             <div class="col-lg-3 col-xs-6">
                 <?php
                     $sql = "SELECT COUNT(total_pagado) AS etiquetas FROM registrados WHERE pagado = 2 ";
                     $resultado = $conn->query($sql);
                     $regalo = $resultado->fetch_assoc();
-                
+
                 ?>
                  <!-- small box -->
                   <div class="small-box bg-maroon">
@@ -174,13 +175,13 @@
                     </a>
                   </div>
             </div>
-            
+
             <div class="col-lg-3 col-xs-6">
                 <?php
                     $sql = "SELECT COUNT(total_pagado) AS plumas FROM registrados WHERE pagado = 3 ";
                     $resultado = $conn->query($sql);
                     $regalo = $resultado->fetch_assoc();
-                
+
                 ?>
                  <!-- small box -->
                   <div class="small-box bg-purple-active">
@@ -207,4 +208,3 @@
   <?php
           include_once 'templates/footer.php';
   ?>
-

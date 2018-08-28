@@ -19,13 +19,13 @@
               </nav>
           </div>
     </div>
-    
+
     <p class="copyright">
-      Todos los derechos Reservados DP SOLUTIONS 2018. 
+      Todos los derechos Reservados DP SOLUTIONS 2018.
     </p>
-  
-  
-        
+
+
+
           <!-- Begin MailChimp Signup Form -->
           <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
           <style type="text/css">
@@ -65,7 +65,7 @@
 <script src="js/jquery.countdown.min.js"></script>
 <script src="js/jquery.lettering.js"></script>
 
-<?php 
+<?php
     $archivo = basename($_SERVER['PHP_SELF']);
     $pagina = str_replace(".php", "", $archivo);
     if($pagina == 'invitados' || $pagina == 'index'){
@@ -73,12 +73,13 @@
       echo '<script src="js/jquery.waypoints.min.js"></script>';
     } else if($pagina == 'conferencia') {
       echo '<script src="js/lightbox.js"></script>';
-    }        
+    }
 ?>
 <script src="js/main.js"></script>
 <script src="js/cotizador.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeSzprwFmUOSsAIf36sT9hONLvf3ReD_4&callback=initMap"
 async defer></script>
+
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
