@@ -57,10 +57,14 @@ $(document).ready(function () {
     $('#icono').iconpicker();
 
 
-    $('input[type="checkbox"].minimal, input[type="radio"k].minimal').iCheck({
+    /*$('input[type="checkbox"].minimal, input[type="radio"k].minimal').iCheck({
       checkboxClass: 'icheckbox_flat-blue',
       radioClass   : 'iradio_flat-blue'
-  });
+  });*/
+
+ /* TAG PARA DEBUg */
+  /*  alert("Dsds"); */
+
 
   $.getJSON('servicio-registrados.php', function(data) {
       var line = new Morris.Line({

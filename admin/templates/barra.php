@@ -6,7 +6,7 @@
     <!-- Logo -->
     <a href="../index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>G</b>WC</span>
+      <span class="logo-mini"><b>T</b>CM</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>TECH</b>Camp</span>
     </a>
