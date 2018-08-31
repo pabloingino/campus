@@ -1,6 +1,7 @@
-  <?php include_once 'includes/templates/header.php'; ?>  
+  <?php include_once 'includes/templates/header.php'; ?>
 
-        <section class="seccion contenedor">
+        <sectiysql
+        on class="seccion contenedor">
             <h2>Registro de Usuarios</h2>
             <form id="registro" class="registro" action="pagar.php" method="post">
                 <div id="datos_usuario" class="registro caja clearfix">
@@ -18,7 +19,7 @@
                     </div>
                     <div id="error"></div>
                 </div> <!--#datos_usuario -->
-                
+
                 <div id="paquetes" class="paquetes">
                   <h3>Elige el número de boletos</h3>
                   <ul class="lista-precios clearfix">
@@ -53,8 +54,8 @@
                                     <input type="hidden" value="50" name="boletos[completo][precio]">
                                 </div>
                             </div>
-                      </li> 
-                      
+                      </li>
+
                       <li>
                             <div class="tabla-precio">
                                 <h3>Pase por 2 días (viernes y sábado)</h3>
@@ -70,11 +71,11 @@
                                     <input type="hidden" value="45" name="boletos[2dias][precio]">
                                 </div>
                             </div>
-                      </li> 
+                      </li>
                   </ul>
                 </div><!--#paquetes -->
-                
-                
+
+
                 <div id="eventos" class="eventos clearfix">
                          <h3>Elige tus talleres</h3>
                          <div class="caja">
@@ -93,14 +94,14 @@
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
-                                    
+
                                     $eventos_dias = array();
                                     while($eventos = $resultado->fetch_assoc()) {
-                                        
+
                                         $fecha = $eventos['fecha_evento'];
                                         setlocale(LC_ALL, 'es_ES');
                                         $dia_semana = strftime("%A", strtotime($fecha));
-                                        
+
                                         $categoria = $eventos['cat_evento'];
                                         $dia = array(
                                             'nombre_evento' => $eventos['nombre_evento'],
@@ -111,18 +112,18 @@
                                         );
                                         $eventos_dias[$dia_semana]['eventos'][$categoria][] = $dia;
                                     }
-                        
-                                
+
+
                                 ?>
-                             
+
                                 <?php foreach($eventos_dias as $dia => $eventos) { ?>
                                    <div id="<?php echo str_replace('á', 'a', $dia); ?>" class="contenido-dia clearfix">
-                                       <h4><?php echo $dia; ?></h4>
-                                       
-                                       <?php foreach($eventos['eventos'] as $tipo => $evento_dia): ?>  
+
+
+                                       <?php foreach($eventos['eventos'] as $tipo => $evento_dia){ ?>
                                            <div>
                                                  <p><?php echo $tipo; ?></p>
-                                               
+
                                                  <?php foreach($evento_dia as $evento) { ?>
                                                    <label>
                                                         <input type="checkbox" name="registro[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
@@ -132,12 +133,12 @@
                                                    </label>
                                                 <?php } //foreach ?>
                                            </div>
-                                       <?php endforeach; ?>
+                                       <?php }//endforeach; ?>
                                    </div> <!--.contenido-dia -->
                                <?php  } ?>
                            </div><!--.caja-->
                      </div> <!--#eventos -->
-                     
+
                      <div id="resumen" class="resumen">
                         <h3>Pago y Extras</h3>
                         <div class="caja clearfix">
@@ -161,18 +162,18 @@
                                             <option value="3">Plumas</option>
                                         </select>
                                     </div><!--.orden-->
-                                    
+
                                     <input type="button" id="calcular" class="button" value="Calcular">
                               </div> <!--.extras-->
-                              
+
                               <div class="total">
                                   <p>Resumen:</p>
                                   <div id="lista-productos">
-                                    
+
                                   </div>
                                   <p>Total:</p>
                                   <div id="suma-total">
-                                    
+
                                   </div>
                                   <input type="hidden" name="total_pedido" id="total_pedido">
                                   <input type="hidden" name="total_descuento" id="total_descuento" value="total_descuento">
@@ -180,8 +181,8 @@
                               </div> <!--.total-->
                         </div><!--.caja-->
                      </div> <!--#resumen -->
-                
+
             </form>
         </section>
-        
-    <?php include_once 'includes/templates/footer.php'; ?>  
+
+    <?php include_once 'includes/templates/footer.php'; ?>

@@ -11,4 +11,3 @@ $apiContext = new \PayPal\Rest\ApiContext(
           'ENvQAhpPzN6JmdYJQLhZnMyIlDpYrl7ujVCnujUvpB2M4tBI_Ymqp9hB2oL0As8aH0RB1avl5bhAJHLX'  // Secret
       )
 );
-

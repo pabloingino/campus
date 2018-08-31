@@ -1,6 +1,7 @@
 <?php
 
 if(!isset($_POST['submit'])) {
+      echo "Estoy en el error";exit;
       exit("Hubo un error");
 }
 
@@ -16,7 +17,8 @@ use PayPal\Api\Payment;
 require 'includes/paypal.php';
 
 
-if(isset($_POST['submit'])): 
+if(isset($_POST['submit'])):
+  echo "Estoy en el array";exit; 
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
   $email = $_POST['email'];
@@ -26,7 +28,7 @@ if(isset($_POST['submit'])):
   // Pedidos
   $boletos = $_POST['boletos'];
   $numero_boletos = $boletos;
-  
+
   $pedidoExtra = $_POST['pedido_extra'];
   $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
   $precioCamisa = $_POST['pedido_extra']['camisas']['precio'];
@@ -61,12 +63,12 @@ $articulo->setName($producto)
          ->setCurrency('MXN')
          ->setQuantity(1)
          ->setPrice($precio);
-         
+
 $i = 0;
 $arreglo_pedido = array();
 foreach($numero_boletos as $key => $value) {
       if( (int) $value['cantidad'] > 0 ) {
-            
+
             ${"articulo$i"} = new Item();
             $arreglo_pedido[] = ${"articulo$i"};
             ${"articulo$i"}->setName('Pase: ' . $key)
@@ -106,18 +108,18 @@ $listaArticulos->setItems($arreglo_pedido);
 $cantidad = new Amount();
 $cantidad->setCurrency('USD')
          ->setTotal($total);
-         
+
 
 $transaccion =  new Transaction();
 $transaccion->setAmount($cantidad)
             ->setItemList($listaArticulos)
             ->setDescription('Pago GDLWEBCAMP ')
             ->setInvoiceNumber($ID_registro);
-            
+
 $redireccionar = new RedirectUrls();
 $redireccionar->setReturnUrl(URL_SITIO . "/pago_finalizado.php?exito=true&id_pago={$ID_registro}")
               ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?exito=false&id_pago={$ID_registro}");
-          
+
 
 $pago = new Payment();
 $pago->setIntent("sale")
@@ -133,9 +135,7 @@ try {
     exit;
     echo "</pre>";
 }
-    
+
 $aprobado = $pago->getApprovalLink();
 
 header("Location: {$aprobado}");
-
-

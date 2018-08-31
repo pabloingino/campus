@@ -15,7 +15,7 @@
     display: none;
 }
 .contenido-dia {
-    display: none;
+    /* display: none; */
 }
 .tabla-precio ul,
 ul.lista-precios {
@@ -45,11 +45,3 @@ ul.lista-precios li .numero {
     color: #fe4918;
     font-weight: bold;
 }
-
-
-
-
-
-
-
-

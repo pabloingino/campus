@@ -226,8 +226,8 @@ h1.nombre-sitio span {
     top:10px;    right: 20px;
   }
   .char10 {
-      top: 20px; right: 20px; 
-  } 
+      top: 20px; right: 20px;
+  }
 
 }
 
@@ -396,7 +396,7 @@ div.menu-movil span{
     height: 8px;
     margin-bottom: 6px;
     background-color: white;
-    display: block; 
+    display: block;
 }
 
 /** Talleres **/
@@ -432,7 +432,7 @@ div.programa-evento {
 }
 nav.menu-programa {
   width: 100%;
-  
+
 }
 @media only screen and (min-width:768px) {
     nav.menu-programa {
@@ -573,7 +573,7 @@ ul.resumen-evento li {
 }
 @media only screen and (min-width:768px){
   ul.resumen-evento li {
-      width: 25%; 
+      width: 25%;
   }
 }
 p.numero {
@@ -623,7 +623,7 @@ div.tabla-precio ul li:before {
   color: green;
   -webkit-font-smoothing: antialiased;
   content: '\f00c';
-  
+
 }
 div.tabla-precio h3 {
   font-family: 'Oswald', sans-serif;
@@ -663,7 +663,7 @@ blockquote {
 }
 blockquote p {
   text-align: justify!important;
-  font-size: 1em!important;    
+  font-size: 1em!important;
   font-family: 'PT Sans', sans-serif;
   padding: 0 20px 0 65px;
 }
@@ -689,7 +689,7 @@ footer.info-testimonial img {
   margin-left: 20px;
 }
 footer.info-testimonial cite {
-  text-align: left;    
+  text-align: left;
   color:#fe4918;
   text-transform: uppercase;
   font-size: 12px;
@@ -804,7 +804,7 @@ form.registro h3 {
 }
 form.registro label {
   margin-bottom: 5px;
-  font-weight: bold;    
+  font-weight: bold;
 }
 h4 {
   text-align: center;
@@ -834,7 +834,7 @@ div.paquetes .tabla-precio:hover {
   box-shadow: none;
 }
 div.paquetes .tabla-precio input {
-  clear: both;    
+  clear: both;
   width: 100px;
   margin: 10px auto 0 auto;
   display: block;
@@ -842,7 +842,7 @@ div.paquetes .tabla-precio input {
 
 .contenido-dia {
   padding: 20px;
-  display: none;
+  /* display: none; */
 }
 @media only screen and (min-width:768px) {
   .contenido-dia > div {
@@ -888,7 +888,7 @@ div.extras div.orden {
     margin-bottom: 10px;
 }
 div.extras div.orden input {
-  margin: 10px 0 0 0 ;    
+  margin: 10px 0 0 0 ;
 }
 div.resumen div.total {
   float: right;
@@ -930,13 +930,13 @@ div.calendario h3 {
 div.calendario::after {
   clear: both;
   display: block;
-  content: '';    
+  content: '';
 }
 div.dia {
   width: 50%;
   float: left;
-  border: 2px solid #e1e1e1;  
-  transition: all .3s ease; 
+  border: 2px solid #e1e1e1;
+  transition: all .3s ease;
 }
 @media only screen and (min-width:768px) {
   div.dia {

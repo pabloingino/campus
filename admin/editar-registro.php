@@ -8,7 +8,7 @@
         include_once 'funciones/funciones.php';
         include_once 'templates/barra.php';
         include_once 'templates/navegacion.php';
-        
+
 ?>
 
 
@@ -59,7 +59,7 @@
                                         $pedido = $registrado['pases_articulos'];
                                         $boletos = json_decode($pedido, true);
                                     ?>
-                                    
+
                                     <div class="form-group">
                                         <div id="paquetes" class="paquetes">
                                             <div class="box-header with-border">
@@ -97,8 +97,8 @@
                                                             <input type="hidden" value="50" name="boletos[completo][precio]">
                                                         </div>
                                                     </div>
-                                              </li> 
-                                              
+                                              </li>
+
                                               <li class="col-md-4">
                                                     <div class="tabla-precio text-center">
                                                         <h3>Pase por 2 días (viernes y sábado)</h3>
@@ -114,11 +114,11 @@
                                                             <input type="hidden" value="45" name="boletos[2dias][precio]">
                                                         </div>
                                                     </div>
-                                              </li> 
+                                              </li>
                                           </ul>
                                         </div><!--#paquetes-->
                                     </div> <!--.form-group-->
-                                    
+
                                     <div class="form-group">
                                         <div class="box-header with-border">
                                             <h3 class="box-title">Elige los talleres</h3>
@@ -128,7 +128,7 @@
                                                         <?php
                                                             $eventos = $registrado['talleres_registrados'];
                                                             $id_eventos_registrados = json_decode($eventos, true);
-                                        
+
                                                             try {
                                                                 $sql = "SELECT eventos.*, categoria_evento.cat_evento, invitados.nombre_invitado, invitados.apellido_invitado ";
                                                                 $sql .= " FROM eventos ";
@@ -142,14 +142,14 @@
                                                             } catch (Exception $e) {
                                                                 echo $e->getMessage();
                                                             }
-                                                            
+
                                                             $eventos_dias = array();
                                                             while($eventos = $resultado->fetch_assoc()) {
-                                                                
+
                                                                 $fecha = $eventos['fecha_evento'];
                                                                 setlocale(LC_ALL, 'es_ES');
                                                                 $dia_semana = strftime("%A", strtotime($fecha));
-                                                                
+
                                                                 $categoria = $eventos['cat_evento'];
                                                                 $dia = array(
                                                                     'nombre_evento' => $eventos['nombre_evento'],
@@ -160,19 +160,20 @@
                                                                 );
                                                                 $eventos_dias[$dia_semana]['eventos'][$categoria][] = $dia;
                                                             }
-                                                
-                                                        
+
+
                                                         ?>
-                                                     
+                                                        
                                                         <?php foreach($eventos_dias as $dia => $eventos) { ?>
                                                            <div id="<?php echo str_replace('á', 'a', $dia); ?>" class="contenido-dia clearfix row">
                                                                <h4 class="text-center nombre_dia"><?php echo $dia; ?></h4>
-                                                               
-                                                               <?php foreach($eventos['eventos'] as $tipo => $evento_dia): ?>  
+
+                                                               <?php foreach($eventos['eventos'] as $tipo => $evento_dia): ?>
                                                                    <div class="col-md-4">
                                                                          <p><?php echo $tipo; ?></p>
-                                                                       
+
                                                                          <?php foreach($evento_dia as $evento) { ?>
+
                                                                            <label>
                                                                                 <input <?php echo (in_array( $evento['id'], $id_eventos_registrados['eventos']) ? 'checked' : '' ); ?> type="checkbox" class="minimal" name="registro_evento[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
                                                                                 <time><?php echo $evento['hora']; ?></time> <?php echo $evento['nombre_evento']; ?>
@@ -186,7 +187,7 @@
                                                        <?php  } ?>
                                                    </div><!--.caja-->
                                              </div> <!--#eventos-->
-                                             
+
                                              <div id="resumen" class="resumen ">
                                                  <div class="box-header with-border">
                                                      <h3 class="box-title">Pagos y Extras</h3>
@@ -216,21 +217,21 @@
                                                             <br>
                                                             <input type="button" id="calcular" class="btn btn-success" value="Calcular">
                                                       </div> <!--.extras-->
-                                                      
+
                                                       <div class="total col-md-6">
                                                           <p>Resumen:</p>
                                                           <div id="lista-productos"></div>
                                                           <p>Total Ya Pagado: <?php echo (float) $registrado['total_pagado']; ?></p>
                                                           <p>Total:</p>
                                                           <div id="suma-total">
-                                                            
+
                                                           </div>
 
                                                       </div> <!--.total-->
                                                 </div><!--.caja-->
                                              </div> <!--#resumen-->
                                     </div>
-                                    
+
                               </div>
                               <!-- /.box-body -->
 
@@ -250,7 +251,7 @@
 
                 </section>
                 <!-- /.content -->
-                
+
                 </div>
         </div>
   </div>
@@ -259,4 +260,3 @@
   <?php
           include_once 'templates/footer.php';
   ?>
-

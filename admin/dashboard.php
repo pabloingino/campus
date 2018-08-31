@@ -132,7 +132,7 @@
         <div class="row">
             <div class="col-lg-3 col-xs-6">
                 <?php
-                    $sql = "SELECT COUNT(total_pagado) AS pulseras FROM registrados WHERE pagado = 1 ";
+                    $sql = "SELECT COUNT(ID_Registrado) AS pulseras FROM registrados WHERE pagado = 1 AND regalo = 1";
                     $resultado = $conn->query($sql);
                     $regalo = $resultado->fetch_assoc();
 
@@ -155,7 +155,7 @@
 
             <div class="col-lg-3 col-xs-6">
                 <?php
-                    $sql = "SELECT COUNT(total_pagado) AS etiquetas FROM registrados WHERE pagado = 2 ";
+                    $sql = "SELECT COUNT(ID_Registrado) AS etiquetas FROM registrados WHERE pagado = 1 AND regalo = 2";
                     $resultado = $conn->query($sql);
                     $regalo = $resultado->fetch_assoc();
 
@@ -178,7 +178,7 @@
 
             <div class="col-lg-3 col-xs-6">
                 <?php
-                    $sql = "SELECT COUNT(total_pagado) AS plumas FROM registrados WHERE pagado = 3 ";
+                    $sql = "SELECT COUNT(ID_Registrado) AS plumas FROM registrados WHERE pagado = 1 AND regalo = 3";
                     $resultado = $conn->query($sql);
                     $regalo = $resultado->fetch_assoc();
 
