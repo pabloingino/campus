@@ -119,7 +119,7 @@
                                 <?php foreach($eventos_dias as $dia => $eventos) { ?>
                                    <div id="<?php echo str_replace('á', 'a', $dia); ?>" class="contenido-dia clearfix">
 
-
+                                      <h4 class="text-center nombre_dia"><?php echo $dia; ?></h4>
                                        <?php foreach($eventos['eventos'] as $tipo => $evento_dia){ ?>
                                            <div>
                                                  <p><?php echo $tipo; ?></p>
