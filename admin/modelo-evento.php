@@ -1,20 +1,26 @@
 <?php
 include_once 'funciones/funciones.php';
 
-$titulo = $_POST['titulo_evento'];
-$categoria_id = $_POST['categoria_evento'];
-$invitado_id = $_POST['invitado'];
-// obtener la fecha
-$fecha = $_POST['fecha_evento'];
-$fecha_formateada = date('Y-m-d', strtotime($fecha));
 
-// hora
-$hora = $_POST['hora_evento'];
-$hora_formateada = date('H:i', strtotime($hora));
 
-$id_registro = $_POST['id_registro'];
+
+
 
 if($_POST['registro'] == 'nuevo'){
+    
+    $titulo = $_POST['titulo_evento'];
+    $categoria_id = $_POST['categoria_evento'];
+    $invitado_id = $_POST['invitado'];
+        // obtener la fecha
+    $fecha = $_POST['fecha_evento'];
+    $fecha_formateada = date('Y-m-d', strtotime($fecha));
+
+        // hora
+    $hora = $_POST['hora_evento'];
+    $hora_formateada = date('H:i', strtotime($hora));
+
+
+
     try {
         $stmt = $conn->prepare('INSERT INTO eventos (nombre_evento, fecha_evento, hora_evento, id_cat_evento, id_inv) VALUES ( ?, ?, ?, ? , ? )  ');
         $stmt->bind_param('sssii', $titulo, $fecha_formateada, $hora_formateada, $categoria_id, $invitado_id);
@@ -43,9 +49,22 @@ if($_POST['registro'] == 'nuevo'){
 
 if($_POST['registro'] == 'actualizar'){
     
+    $titulo = $_POST['titulo_evento'];
+    $categoria_id = $_POST['categoria_evento'];
+    $invitado_id = $_POST['invitado'];
+        // obtener la fecha
+    $fecha = $_POST['fecha_evento'];
+    $fecha_formateada = date('Y-m-d', strtotime($fecha));
 
+        // hora
+    $hora = $_POST['hora_evento'];
+    $hora_formateada = date('H:i', strtotime($hora));
+
+
+    $id_registro = $_POST['id_registro'];
+    
     try {
-        $stmt = $conn->prepare('UPDATE eventos SET nombre_evento = ?, fecha_evento = ?, hora_evento = ?, id_cat_evento = ?, id_inv = ?, editado = NOW() WHERE evento_id = ? ');
+        $stmt = $conn->prepare('UPDATE eventos SET nombre_evento = ?, fecha_evento = ?, hora_evento = ?, id_cat_evento = ?, id_inv = ? WHERE evento_id = ? ');
         $stmt->bind_param('sssiii', $titulo, $fecha_formateada, $hora_formateada, $categoria_id, $invitado_id, $id_registro );
         $stmt->execute();
         if($stmt->affected_rows) {
@@ -73,7 +92,7 @@ if($_POST['registro'] == 'actualizar'){
 
 if($_POST['registro'] == 'eliminar'){
     
-
+    
     $id_borrar = $_POST['id'];
     
     try {

@@ -34,17 +34,22 @@
 
 
                      <?php $dias = array_values(array_unique($dias)) ?>
+                     
                      <?php $contador = 0; ?>
                      <?php foreach($eventos as $evento): ?>
+                            <?php if($contador < count($dias)): ?>
+                              <?php $dia_actual = $evento['fecha_evento']; ?>
+                              <?php if($dia_actual == $dias[$contador]): ?>
+                                    <h3>
+                                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                                          <?php echo $evento['fecha_evento']; ?>
+                                          
 
-                            <?php $dia_actual = $evento['fecha_evento']; ?>
-                            <?php if($dia_actual == $dias[$contador]): ?>
-                                  <h3>
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        <?php echo $evento['fecha_evento']; ?>
-
-                                  </h3>
-                                  <?php $contador++; ?>
+                                    </h3>
+                                    
+                                   <?php $contador++; ?>
+                              <?php endif; ?>
+                              
                             <?php endif; ?>
 
                            <div class="dia">
@@ -75,10 +80,10 @@
                                 </p>
 
                            </div>
-
+                            
                      <?php endforeach; ?>
                  </div> <!--.calendario-->
-                <?php } ?>
+                 <?php } ?> 
 
             <?php
                $conn->close();
