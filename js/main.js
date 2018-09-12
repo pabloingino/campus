@@ -13,7 +13,7 @@ function initMap() {
     'mapTypeId': google.maps.MapTypeId.ROADMAP
   });
   
-  var contenido = '<h2>GDLWEBCAMP</h2>'+
+  var contenido = '<h2>TECHCAMP</h2>'+
                   '<p>Del 10 al 12 de Diciembre</p>'+
                   '<p>Visitanos!</p>';
   
