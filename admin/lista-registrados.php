@@ -34,7 +34,7 @@
                   <th>Fecha Registro</th>
                   <th>Artículos</th>
                   <th>Talleres</th>
-                  <th>Regalo</th>
+                  <th>Pagado</th>
                   <th>Compra</th>
                   <th>Acciones</th>
                 </tr>
@@ -51,25 +51,21 @@
                                 echo $error;
                             }
                             while($registrado = $resultado->fetch_assoc() ) { ?>
-                                
+
                                 <tr>
                                     <td>
-                                        <?php echo $registrado['nombre_registrado'] . " " . $registrado['apellido_registrado']; 
-                                             $pagado = $registrado['pagado'];
-                                             if($pagado) {
-                                                  echo '<span class="badge bg-green">Pagado</span>';
-                                             } else {
-                                                 echo '<span class="badge bg-red">No Pagado</span>';
-                                             }
-                                        
+                                        <?php echo $registrado['nombre_registrado'] . " " . $registrado['apellido_registrado'];
+
+                                             
+
                                         ?>
-                                    
+
                                     </td>
                                     <td><?php echo $registrado['email_registrado']; ?></td>
                                     <td><?php echo $registrado['fecha_registro']; ?></td>
                                     <td>
-                                        <?php 
-                                            $articulos = json_decode($registrado['pases_articulos'], true); 
+                                        <?php
+                                            $articulos = json_decode($registrado['pases_articulos'], true);
                                             $arreglo_articulos = array(
                                                 'un_dia' => 'Pase 1 día',
                                                 'pase_2dias' => 'Pase 2 días',
@@ -77,36 +73,42 @@
                                                 'camisas' => 'Camisas',
                                                 'etiquetas' => 'Etiquetas'
                                             );
-                                            
+
                                             foreach($articulos as $llave => $articulo) {
                                                 if(array_key_exists('cantidad', $articulo)) {
                                                     echo  $articulo['cantidad'] . " " . $arreglo_articulos[$llave]. "<br>";
                                                 } else {
                                                     echo  $articulo . " " . $arreglo_articulos[$llave]. "<br>";
                                                 }
-                                                
-                                                
+
+
                                             }
                                         ?>
                                     </td>
                                     <td>
-                                        <?php   $eventos_resultado =  $registrado['talleres_registrados']; 
+                                        <?php   $eventos_resultado =  $registrado['talleres_registrados'];
                                                 $talleres = json_decode($eventos_resultado, true);
-                                                
+
                                                 $talleres = implode("', '", $talleres['eventos']);
                                                 $sql_talleres = "SELECT nombre_evento, fecha_evento, hora_evento FROM eventos WHERE clave IN  ('$talleres') OR evento_id IN ('$talleres') ";
-                                                
+
                                                 $resultado_talleres = $conn->query($sql_talleres);
-                                                
-                                                
+
+
                                                 while($eventos = $resultado_talleres->fetch_assoc()) {
                                                     echo $eventos['nombre_evento'] . " " . $eventos['fecha_evento'] . " " . $eventos['hora_evento'] . "<br>";
                                                 }
-                                        
+
                                         ?>
-                                    
+
                                     </td>
-                                    <td><?php echo $registrado['nombre_regalo']; ?></td>
+                                    <td><?php
+                                    $pagado = $registrado['pagado'];
+                                    if($pagado) {
+                                         echo '<span class="badge bg-green">Pagado</span>';
+                                    } else {
+                                        echo '<span class="badge bg-red">No Pagado</span>';
+                                    }?></td>
                                     <td>$ <?php echo (float) $registrado['total_pagado']; ?></td>
                                     <td>
                                         <a href="editar-registro.php?id=<?php echo $registrado['ID_Registrado']; ?>" class="btn bg-orange btn-flat margin">
@@ -115,7 +117,7 @@
                                         <a href="#" data-id="<?php echo $registrado['ID_Registrado']; ?>" data-tipo="registrado" class="btn bg-maroon bnt-flat margin borrar_registro">
                                             <i class="fa fa-trash"></i>
                                         </a>
-                                        
+
                                     </td>
                                 </tr>
                             <?php }  ?>
@@ -149,4 +151,3 @@
   <?php
           include_once 'templates/footer.php';
   ?>
-

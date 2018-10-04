@@ -326,7 +326,7 @@ div.logo img {
 }
 @media only screen and (min-width:768px) {
   div.logo {
-    width:33%;
+    width:30%;
 
   }
 }
@@ -360,7 +360,7 @@ nav.navegacion-principal a:last-child:hover {
 }
 @media only screen and (min-width:768px) {
   nav.navegacion-principal {
-    width: 67%;
+    width: 70%;
     float: right;
     text-align: right;
     display: block;

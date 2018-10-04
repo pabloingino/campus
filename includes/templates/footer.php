@@ -6,7 +6,7 @@
           </div>
           <div class="ultimos-tweets">
               <h3>Últimos <span>tweets</span></h3>
-               <a class="twitter-timeline" data-height="400" data-theme="light" data-link-color="#fe4918" href="https://twitter.com/JuanDevWP">Tweets by JuanDevWP</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+               <a class="twitter-timeline" data-height="400" data-theme="light" data-link-color="#fe4918" href="https://twitter.com/">Tweets by DP Solutions</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
           <div class="menu">
               <h3>Redes <span>sociales</span></h3>
