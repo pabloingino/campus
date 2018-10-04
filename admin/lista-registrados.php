@@ -34,7 +34,7 @@
                   <th>Fecha Registro</th>
                   <th>Artículos</th>
                   <th>Talleres</th>
-                  <th>Pagado</th>
+                  <th>Estado</th>
                   <th>Compra</th>
                   <th>Acciones</th>
                 </tr>
@@ -56,7 +56,7 @@
                                     <td>
                                         <?php echo $registrado['nombre_registrado'] . " " . $registrado['apellido_registrado'];
 
-                                             
+
 
                                         ?>
 

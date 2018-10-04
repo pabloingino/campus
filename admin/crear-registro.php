@@ -171,11 +171,11 @@
                                                                                 <br>
                                                                                 <span class="autor"><?php echo $evento['nombre_invitado'] . " "  . $evento['apellido_invitado']; ?></span>
                                                                            </label>
-                                                                        <?php } //foreach ?>
+                                                                        <?php } //foreach 3?>
                                                                    </div>
-                                                               <?php endforeach; ?>
+                                                               <?php endforeach; //foreach 2?>
                                                            </div> <!--.contenido-dia -->
-                                                       <?php  } ?>
+                                                       <?php  } //foreach 1?>
                                                    </div><!--.caja-->
                                              </div> <!--#eventos-->
 
