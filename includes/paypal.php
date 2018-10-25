@@ -3,11 +3,11 @@
 
 require 'paypal/autoload.php';
 
-define('URL_SITIO', 'http://localhost:8888/campus');
+define('URL_SITIO', 'http://localhost/campus');
 
 $apiContext = new \PayPal\Rest\ApiContext(
       new \PayPal\Auth\OAuthTokenCredential(
-          'AefY7De1NWXa8ApBtFUHzWQ2H30L54PkDmru0QZOieIbHQEtb1JT0CfAiImMLNmiRwc3BnnGeZJGXAHO',  // ClienteID
-          'ENvQAhpPzN6JmdYJQLhZnMyIlDpYrl7ujVCnujUvpB2M4tBI_Ymqp9hB2oL0As8aH0RB1avl5bhAJHLX'  // Secret
+          'AfFA1UTL8cyFG4jxZw4mGRdrdECgWeFaeyYVsQ4EhMc7zWiMBMXN8WxY0TGccOOqcqczxMcd5q2o07w-',  // ClienteID
+          'EJAtkh144pKtkr4OgcCL6O9LT9ohmpwazMGHXvr4Tdj_QWs5a199chcwc_Gmkji5UOL1Bc_1h8TUK2Vm'  // Secret
       )
 );

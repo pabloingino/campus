@@ -29,6 +29,7 @@
               <table id="registros" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  <th>Id</th>
                   <th>Usuario</th>
                   <th>Nombre</th>
                   <th>Acciones</th>
@@ -45,6 +46,7 @@
                             }
                             while($admin = $resultado->fetch_assoc() ) { ?>
                                 <tr>
+                                    <td><?php echo $admin['id_admin']; ?></td>
                                     <td><?php echo $admin['usuario']; ?></td>
                                     <td><?php echo $admin['nombre']; ?></td>
                                     <td>
@@ -54,13 +56,14 @@
                                         <a href="#" data-id="<?php echo $admin['id_admin']; ?>" data-tipo="admin" class="btn bg-maroon bnt-flat margin borrar_registro">
                                             <i class="fa fa-trash"></i>
                                         </a>
-                                        
+
                                     </td>
                                 </tr>
                             <?php }  ?>
                 </tbody>
                 <tfoot>
                 <tr>
+                    <th>Id</th>
                     <th>Usuario</th>
                     <th>Nombre</th>
                     <th>Acciones</th>
@@ -83,4 +86,3 @@
   <?php
           include_once 'templates/footer.php';
   ?>
-

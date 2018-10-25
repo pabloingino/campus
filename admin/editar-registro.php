@@ -163,7 +163,7 @@
 
 
                                                         ?>
-                                                        
+
                                                         <?php foreach($eventos_dias as $dia => $eventos) { ?>
                                                            <div id="<?php echo str_replace('á', 'a', $dia); ?>" class="contenido-dia clearfix row">
                                                                <h4 class="text-center nombre_dia"><?php echo $dia; ?></h4>
@@ -242,6 +242,7 @@
                                   <input type="hidden" name="id_registro" value="<?php echo $registrado['ID_Registrado']; ?>">
                                   <input type="hidden" name="fecha_registro" value="<?php echo $registrado['fecha_registro']; ?>">
                                   <button type="submit" class="btn btn-primary" id="btnRegistro">Guardar</button>
+                                  <a href="lista-registrados.php"><button type="button" class="btn btn-primary">Salir</button></a>
                               </div>
                         </form>
                     </div>

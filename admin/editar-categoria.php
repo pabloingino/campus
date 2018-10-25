@@ -3,13 +3,13 @@
 
         if(!filter_var($id, FILTER_VALIDATE_INT)) {
             die("Error!");
-        }   
+        }
       include_once 'funciones/sesiones.php';
         include_once 'templates/header.php';
         include_once 'funciones/funciones.php';
-        
+
         include_once 'templates/barra.php';
-        
+
         include_once 'templates/navegacion.php';
 ?>
 
@@ -41,9 +41,9 @@
                             $sql = "SELECT * FROM categoria_evento WHERE id_categoria = $id ";
                             $resultado = $conn->query($sql);
                             $categoria = $resultado->fetch_assoc();
-                
+
                         ?>
-                        
+
                         <!-- form start -->
                         <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-categoria.php">
                               <div class="box-body">
@@ -67,6 +67,7 @@
                                   <input type="hidden" name="registro" value="actualizar">
                                   <input type="hidden" name="id_registro" value="<?php echo $id; ?>">
                                   <button type="submit" class="btn btn-primary" id="crear_registro">Añadir</button>
+                                  <a href="lista-categorias.php"><button type="button" class="btn btn-primary">Salir</button></a>
                               </div>
                         </form>
                     </div>
@@ -76,7 +77,7 @@
 
                 </section>
                 <!-- /.content -->
-                
+
                 </div>
         </div>
   </div>
@@ -85,4 +86,3 @@
   <?php
           include_once 'templates/footer.php';
   ?>
-

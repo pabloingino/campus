@@ -18,8 +18,8 @@ $regalo = $_POST['regalo'];
 $eventos = $_POST['registro_evento'];
 $registro_eventos = eventos_json($eventos);
 
-$fecha_registro = $_POST['fecha_registro'];
-$id_registro = $_POST['id_registro'];
+
+
 
 if($_POST['registro'] == 'nuevo'){
 
@@ -47,11 +47,12 @@ if($_POST['registro'] == 'nuevo'){
         );
     }
     die(json_encode($respuesta));
-    
+
 }
 
 if($_POST['registro'] == 'actualizar'){
-    
+    $fecha_registro = $_POST['fecha_registro'];
+    $id_registro = $_POST['id_registro'];
     try {
         $stmt = $conn->prepare('UPDATE registrados SET nombre_registrado = ?, apellido_registrado = ?, email_registrado = ?, fecha_registro = ?, pases_articulos = ?, talleres_registrados = ?, regalo = ?, total_pagado = ?, pagado = 1 WHERE ID_Registrado = ? ');
         $stmt->bind_param('ssssssisi', $nombre, $apellido, $email, $fecha_registro, $pedido, $registro_eventos, $regalo, $total, $id_registro );
@@ -66,7 +67,7 @@ if($_POST['registro'] == 'actualizar'){
                 'respuesta' => 'error'
             );
         }
-        
+
         $stmt->close();
         $conn->close();
     } catch (Exception $e) {
@@ -74,16 +75,16 @@ if($_POST['registro'] == 'actualizar'){
             'respuesta' => $e->getMessage()
         );
     }
-    
+
     die(json_encode($respuesta));
-    
+
 }
 
 if($_POST['registro'] == 'eliminar'){
-    
+
 
     $id_borrar = $_POST['id'];
-    
+
     try {
         $stmt = $conn->prepare('DELETE FROM registrados WHERE ID_Registrado = ? ');
         $stmt->bind_param('i', $id_borrar);
@@ -105,4 +106,3 @@ if($_POST['registro'] == 'eliminar'){
     }
     die(json_encode($respuesta));
 }
-

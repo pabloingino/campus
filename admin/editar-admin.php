@@ -10,6 +10,7 @@
         include_once 'templates/barra.php';
 
         include_once 'templates/navegacion.php';
+        $level = $_SESSION['nivel'];
 ?>
 
 
@@ -58,17 +59,25 @@
                                     </div>
                                     <div class="form-group">
 
-                                          <label for="superadmin">Superadmin:</label>
-                                          <?php  if ($admin['nivel'] == 1){?>
+                                      <label for="superadmin">Superadmin:</label>
+                                          <?php  if ($level == 1){?>
+                                                <?php  if ($admin['nivel'] == 1){?>
                                                 <select id="superadmin" name="superadmin" value="-Any-">
                                                    <option value="1" selected>Si</option>
                                                    <option value="0">No</option>
                                                 </select>
-                                          <?php } else {?>
-                                                <select id="superadmin" name="superadmin" value="-Any-">
+                                               <?php } if ($admin['nivel'] == 0) {?>
+                                                  <select id="superadmin" name="superadmin" value="-Any-">
+                                                     <option value="1">Si</option>
+                                                     <option value="0" selected>No</option>
+                                                  </select>
+                                                <?php } ?>
+                                          <?php } if ($level == 0) {?>
+                                                <select id="superadmin" name="superadmin" value="-Any-" hidden>
                                                    <option value="1">Si</option>
                                                    <option value="0" selected>No</option>
                                                 </select>
+                                                <span class="over">No</span>
                                           <?php } ?>
 
 
@@ -86,6 +95,7 @@
                                   <input type="hidden" name="registro" value="actualizar">
                                   <input type="hidden" name="id_registro" value="<?php echo $id; ?>">
                                   <button type="submit" class="btn btn-primary">Guardar</button>
+                                  <a href="lista-admin.php"><button type="button" class="btn btn-primary">Salir</button></a>
                               </div>
                         </form>
                     </div>

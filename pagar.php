@@ -18,7 +18,7 @@ require 'includes/paypal.php';
 
 
 if(isset($_POST['submit'])):
-  echo "Estoy en el array";exit; 
+  //echo "Estoy en el array";exit;
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
   $email = $_POST['email'];
