@@ -1,22 +1,6 @@
 <?php
 include_once 'funciones/funciones.php';
 
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$email = $_POST['email'];
-// BOLETOS
-$boletos_adquiridos = $_POST['boletos'];
-// camisas y etiquetas
-$camisas = $_POST['pedido_extra']['camisas']['cantidad'];
-$etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
-
-$pedido = productos_json($boletos_adquiridos, $camisas, $etiquetas);
-
-$total = $_POST['total_pedido'];
-$regalo = $_POST['regalo'];
-
-$eventos = $_POST['registro_evento'];
-$registro_eventos = eventos_json($eventos);
 
 
 
@@ -81,6 +65,23 @@ if($_POST['registro'] == 'guardar'){
 }
 
 if($_POST['registro'] == 'actualizar'){
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $email = $_POST['email'];
+    // BOLETOS
+    $boletos_adquiridos = $_POST['boletos'];
+    // camisas y etiquetas
+    $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
+    $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
+
+    $pedido = productos_json($boletos_adquiridos, $camisas, $etiquetas);
+
+    $total = $_POST['total_pedido'];
+    $regalo = $_POST['regalo'];
+
+    $eventos = $_POST['registro_evento'];
+    $registro_eventos = eventos_json($eventos);
+
     $fecha_registro = $_POST['fecha_registro'];
     $id_registro = $_POST['id_registro'];
     try {
