@@ -197,6 +197,36 @@ h1.nombre-sitio span {
   text-shadow: 0 0 30px black;
 }
 
+h3.pago {
+  text-align: center;
+  font-size: 2.2em;
+  color: #05ad1e;
+  text-transform: uppercase;
+}
+p.pago {
+  font-size: 2em;
+}
+i.pago {
+  float: left;
+  font-size: 2.2em;
+  color: #05ad1e;
+  padding: 0;
+}
+
+h3.nopago {
+  text-align: center;
+  font-size: 2em;
+  color: #ee082b;
+  text-transform: uppercase;
+
+}
+i.nopago {
+  float: left;
+  font-size: 2em;
+  color: #ee082b;
+  padding: 0;
+}
+
 @media only screen and (min-width: 992px){
   .char1 {
         top: 20px; right:20px;

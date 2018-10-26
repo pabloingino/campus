@@ -32,7 +32,6 @@
                   <th>Nombre</th>
                   <th>Email</th>
                   <th>Fecha Registro</th>
-                  <th>Artículos</th>
                   <th>Talleres</th>
                   <th>Estado</th>
                   <th>Compra</th>
@@ -63,7 +62,7 @@
                                     </td>
                                     <td><?php echo $registrado['email_registrado']; ?></td>
                                     <td><?php echo $registrado['fecha_registro']; ?></td>
-                                    <td>
+                                    <!-- <td>
                                         <?php
                                             $articulos = json_decode($registrado['pases_articulos'], true);
                                             $arreglo_articulos = array(
@@ -77,6 +76,8 @@
                                             foreach($articulos as $llave => $articulo) {
                                                 if(array_key_exists('cantidad', $articulo)) {
                                                     echo  $articulo['cantidad'] . " " . $arreglo_articulos[$llave]. "<br>";
+                                                    echo array_key_exists('cantidad', $articulo);
+                                                    printf($articulo);
                                                 } else {
                                                     echo  $articulo . " " . $arreglo_articulos[$llave]. "<br>";
                                                 }
@@ -84,7 +85,7 @@
 
                                             }
                                         ?>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <?php   $eventos_resultado =  $registrado['talleres_registrados'];
                                                 $talleres = json_decode($eventos_resultado, true);
@@ -127,7 +128,6 @@
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Fecha Registro</th>
-                    <th>Artículos</th>
                     <th>Talleres</th>
                     <th>Regalo</th>
                     <th>Compra</th>

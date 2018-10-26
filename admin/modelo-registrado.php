@@ -21,11 +21,41 @@ $registro_eventos = eventos_json($eventos);
 
 
 
+
 if($_POST['registro'] == 'nuevo'){
 
 
     try {
         $stmt = $conn->prepare('INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, pagado ) VALUES (?, ?, ?, NOW(), ?, ?, ?, ?, 1 ) ');
+        $stmt->bind_param("sssssis", $nombre, $apellido, $email, $pedido, $registro_eventos, $regalo, $total);
+        $stmt->execute();
+        $id_insertado = $stmt->insert_id;
+        if($stmt->affected_rows) {
+            $respuesta = array(
+                'respuesta' => 'exito',
+                'id_insertado' => $id_insertado
+            );
+        } else {
+            $respuesta = array(
+                'respuesta' => 'error'
+            );
+        }
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        $respuesta = array(
+            'respuesta' => $e->getMessage()
+        );
+    }
+    die(json_encode($respuesta));
+
+}
+
+if($_POST['registro'] == 'guardar'){
+
+
+    try {
+        $stmt = $conn->prepare('INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, pagado ) VALUES (?, ?, ?, NOW(), ?, ?, ?, ?, 0 ) ');
         $stmt->bind_param("sssssis", $nombre, $apellido, $email, $pedido, $registro_eventos, $regalo, $total);
         $stmt->execute();
         $id_insertado = $stmt->insert_id;
