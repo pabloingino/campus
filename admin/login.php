@@ -6,9 +6,9 @@
           session_destroy();
         }
       }
-        
-        include_once 'funciones/funciones.php';
-        include_once 'templates/header.php';
+
+        require 'funciones/funciones.php';
+        require 'templates/header.php';
 ?>
 <body class="hold-transition login-page">
 

@@ -232,6 +232,10 @@
                                   <input type="hidden" name="registro" value="nuevo">
                                   <button type="submit" class="btn btn-primary" id="btnRegistro">Añadir</button>
                               </div>
+                              <div class="box-footer">
+                                  <input type="hidden" name="registro" value="guardar">
+                                  <button type="submit" class="btn btn-primary" id="btnRegistro">guardar</button>
+                              </div>
                         </form>
                     </div>
                     <!-- /.box-body -->
