@@ -80,8 +80,7 @@
                                                 } else {
                                                     echo  $articulo . " " . $arreglo_articulos[$llave]. "<br>";
                                                 }
-
-
+                                                
                                             }
                                         ?>
                                     </td>

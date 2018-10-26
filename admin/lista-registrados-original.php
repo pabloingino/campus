@@ -80,7 +80,8 @@
                                                 } else {
                                                     echo  $articulo . " " . $arreglo_articulos[$llave]. "<br>";
                                                 }
-                                                var_dump($articulos);
+
+
                                             }
                                         ?>
                                     </td>
