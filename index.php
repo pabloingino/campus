@@ -19,8 +19,8 @@
                 <div class="contenedor">
                     <div class="programa-evento">
                         <h2>Programa del Evento</h2>
-                        
-                        <?php 
+
+                        <?php
                             try {
                               require_once('includes/funciones/bd_conexion.php');
                               $sql = "SELECT * FROM `categoria_evento` ";
@@ -37,8 +37,8 @@
                                 </a>
                           <?php } ?>
                         </nav>
-                        
-                        <?php 
+
+                        <?php
                             try {
                               require_once('includes/funciones/bd_conexion.php');
                               $sql = "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento`, `cat_evento`, `nombre_invitado`, `apellido_invitado` ";
@@ -71,12 +71,12 @@
                          ?>
 
                         <?php $conn->multi_query($sql); ?>
-                        
-                        <?php 
+
+                        <?php
                             do {
                                 $resultado = $conn->store_result();
                                 $row = $resultado->fetch_all(MYSQLI_ASSOC);    ?>
-                                
+
                                 <?php $i = 0; ?>
                                 <?php foreach($row as $evento): ?>
                                   <?php if($i % 2 == 0) { ?>
@@ -98,16 +98,16 @@
                           <?php  } while ($conn->more_results() && $conn->next_result());?>
 
 
-                  
+
                     </div> <!--.programa-evento-->
                 </div> <!--.contenedor-->
             </div><!--.contenido-programa-->
         </section> <!--.programa-->
 
 
-          <?php include_once 'includes/templates/invitados.php'; ?>  
-        
-        
+          <?php include_once 'includes/templates/invitados.php'; ?>
+
+
         <div class="contador parallax">
             <div class="contenedor">
                 <ul class="resumen-evento clearfix">
@@ -115,11 +115,11 @@
                     <li><p class="numero">0</p> Talleres</li>
                     <li><p class="numero">0</p> Días</li>
                     <li><p class="numero">0</p> Conferencias</li>
-                  
+
                 </ul>
             </div>
         </div>
-        
+
         <section class="precios seccion">
             <h2>Precios</h2>
             <div class="contenedor">
@@ -133,7 +133,7 @@
                                   <li>Todas las conferencias</li>
                                   <li>Todos los talleres</li>
                                 </ul>
-                                <a href="#" class="button hollow">Comprar</a>
+                                <a href="registro.php" class="button hollow">Comprar</a>
                             </div>
                       </li>
                       <li>
@@ -145,10 +145,10 @@
                                   <li>Todas las conferencias</li>
                                   <li>Todos los talleres</li>
                                 </ul>
-                                <a href="#" class="button">Comprar</a>
+                                <a href="registro.php" class="button">Comprar</a>
                             </div>
-                      </li> 
-                      
+                      </li>
+
                       <li>
                             <div class="tabla-precio">
                                 <h3>Pase por 2 días</h3>
@@ -158,15 +158,15 @@
                                   <li>Todas las conferencias</li>
                                   <li>Todos los talleres</li>
                                 </ul>
-                                <a href="#" class="button hollow">Comprar</a>
+                                <a href="registro.php" class="button hollow">Comprar</a>
                             </div>
-                      </li> 
+                      </li>
                   </ul>
             </div>
         </section>
-        
+
         <div id="mapa" class="mapa"></div>
-        
+
         <section class="seccion">
             <h2>Testimoniales</h2>
             <div class="testimoniales contenedor clearfix">
@@ -199,7 +199,7 @@
                 </div><!--.testimonial-->
             </div>
         </section>
-        
+
         <div class="newsletter parallax">
             <div class="contenido contenedor">
                 <p> regístrate al newsletter:</p>
@@ -219,6 +219,4 @@
                 </ul>
             </div>
         </section>
-  <?php include_once 'includes/templates/footer.php'; ?>  
-        
-
+  <?php include_once 'includes/templates/footer.php'; ?>
