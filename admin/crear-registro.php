@@ -229,13 +229,15 @@
                               <!-- /.box-body -->
 
                               <div class="box-footer">
+                                  <input type="hidden" name="pagado" value=0>
                                   <input type="hidden" name="registro" value="nuevo">
                                   <button type="submit" class="btn btn-primary" id="btnRegistro">Añadir</button>
                               </div>
-                              <div class="box-footer">
+                              <!-- <div class="box-footer">
+                                  <input type="hidden" name="pagado" value=1>
                                   <input type="hidden" name="registro" value="guardar">
                                   <button type="submit" class="btn btn-primary" id="btnRegistro">guardar</button>
-                              </div>
+                              </div> -->
                         </form>
                     </div>
                     <!-- /.box-body -->

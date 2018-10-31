@@ -39,6 +39,7 @@
                             $sql = "SELECT * FROM registrados WHERE ID_Registrado = $id ";
                             $resultado = $conn->query($sql);
                             $registrado = $resultado->fetch_assoc();
+                            $pagado = $registrado['pagado']
                         ?>
                         <!-- form start -->
                         <form class="editar-registrado" role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-registrado.php">
@@ -221,6 +222,7 @@
                                                       <div class="total col-md-6">
                                                           <p>Resumen:</p>
                                                           <div id="lista-productos"></div>
+
                                                           <p>Total Ya Pagado: <?php echo (float) $registrado['total_pagado']; ?></p>
                                                           <p>Total:</p>
                                                           <div id="suma-total">
@@ -236,6 +238,7 @@
                               <!-- /.box-body -->
 
                               <div class="box-footer">
+                                  <input type="hidden" name="pagado" value="<?php echo $registrado['pagado']; ?>">
                                   <input type="hidden" name="total_pedido" id="total_pedido">
                                   <input type="hidden" name="total_descuento" id="total_descuento" value="total_descuento">
                                   <input type="hidden" name="registro" value="actualizar">
