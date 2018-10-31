@@ -6,7 +6,7 @@
           </div>
           <div class="ultimos-tweets">
               <h3>Últimos <span>tweets</span></h3>
-               <a class="twitter-timeline" data-height="400" data-theme="light" data-link-color="#fe4918" href="https://twitter.com/">Tweets by DP Solutions</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+               <a class="twitter-timeline" data-height="400" data-theme="light" data-link-color="#fe4918" href="https://twitter.com/JuanDevWP">Tweets by DP Solutions</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
           <div class="menu">
               <h3>Redes <span>sociales</span></h3>
@@ -75,6 +75,7 @@
       echo '<script src="js/lightbox.js"></script>';
     }
 ?>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
 <script src="js/main.js"></script>
 <script src="js/cotizador.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeSzprwFmUOSsAIf36sT9hONLvf3ReD_4&callback=initMap"
